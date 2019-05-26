@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back1"
+        tools:layout_editor_absoluteX="0dp" />
+
+
     <EditText
         android:id="@+id/Entry_ID"
         android:layout_width="wrap_content"
@@ -44,7 +54,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="23dp"
-        android:text="ID"
+        android:text="IP"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/Entry_PW"
@@ -60,7 +70,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="PW"
+        android:text="Port"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,7 +90,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="22dp"
         android:background="@android:color/holo_orange_dark"
-        android:text="Login"
+        android:text="Connect"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/Btn_CreateAccount"
         app:layout_constraintEnd_toEndOf="parent"
