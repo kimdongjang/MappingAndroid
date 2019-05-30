@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 OnIntentActivity(); // 회원가입 모달 호출
             }
         });
+
     }
     public void RecvLogin(String msg){
         if(msg == "로그인성공"){
