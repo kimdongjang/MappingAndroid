@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     String ID = "";
-    String PW = "";
+    String port = "";
     MainActivity mainActivity = null;
 
     @Override
@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private void Init(){
         // 객체 초기화
         mainActivity = this;
-        ID = ((EditText)findViewById(R.id.Entry_ID)).getText().toString();
 
         // 버튼 이벤트 초기화
         Button BtnLogin = findViewById(R.id.Btn_Login);
@@ -39,10 +38,14 @@ public class MainActivity extends AppCompatActivity {
                 Socket.start();
                 */
                 // 지울 예정
+                ID = ((EditText)findViewById(R.id.Entry_ID)).getText().toString();
+                port = ((EditText)findViewById(R.id.Entry_PW)).getText().toString();
+
                 Intent intent = new Intent(
                         getApplicationContext(), // 현재 화면 제어
                         MapActivity.class); // 다음 넘어갈 클래스 지정
                 intent.putExtra("ip",ID); /*송신*/
+                intent.putExtra("port",port); /*송신*/
                 startActivity(intent); // 다음 화면으로 넘어감
             }
         });

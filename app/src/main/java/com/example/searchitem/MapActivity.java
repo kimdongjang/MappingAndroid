@@ -38,6 +38,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public double w_value = 37.56; // 위도
     public double s_value = 126.97; // 경도
     public String server_ip = "";
+    public String server_port = "";
     FragmentManager fragmentManager = null;
     MapFragment mapFragment = null;
 
@@ -59,6 +60,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         // 메인->맵 액티비티로 넘어올때 데이터전달
         Intent intent = getIntent(); /*데이터 수신*/
         server_ip = intent.getExtras().getString("ip"); /*String형*/
+        server_port = intent.getExtras().getString("port"); /*String형*/
         Init();
     }
 
@@ -156,14 +158,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     //UDP 통신용 소켓 생성
                     DatagramSocket socket = new DatagramSocket();
                     //서버 주소 변수
-                    InetAddress serverAddr = InetAddress.getByName(sIP);
+                    InetAddress serverAddr = InetAddress.getByName(server_ip);
 
                     //보낼 데이터 생성
                     //byte[] buf = ("Hello World").getBytes();
                     byte[] buf = data.getBytes();
 
                     //패킷으로 변경
-                    DatagramPacket packet = new DatagramPacket(buf, buf.length, serverAddr, sPORT);
+                    DatagramPacket packet = new DatagramPacket(buf, buf.length, serverAddr, Integer.parseInt(server_port));
                     System.out.println("접속 성공.....");
                     loop = true;
 
