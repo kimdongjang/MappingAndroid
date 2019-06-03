@@ -26,6 +26,7 @@
         android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="14.5.219.185"
         app:layout_constraintBaseline_toBaselineOf="@+id/TView_ID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -40,6 +41,7 @@
         android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:text="9999"
         app:layout_constraintBaseline_toBaselineOf="@+id/TView_PW"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

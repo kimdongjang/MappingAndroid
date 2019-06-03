@@ -29,14 +29,14 @@ import java.net.SocketTimeoutException;
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     public static final int AccessAndroidFail = -1;
     public static final int AccessAndroidSucess = 1;
-    public static final int SendGpsToAndroid = 2;
+    public static final int Send = 2;
 
     //서버주소
     public static String sIP = "14.5.219.180";
     public static int sPORT = 9999;
 
-    public double w_value = 37.56; // 위도
-    public double s_value = 126.97; // 경도
+    public double w_value = 37.5600; // 위도
+    public double s_value = 126.9700; // 경도
     public String server_ip = "";
     public String server_port = "";
     FragmentManager fragmentManager = null;
@@ -97,7 +97,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 // 맵 갱신
 
                 // 위도, 경도
-                LatLng SEOUL = new LatLng(w_value, s_value);
+                LatLng SEOUL = new LatLng(w_value, 127.4461);
                 //LatLng SEOUL = new LatLng(37.56, 25.97);
 
                 MarkerOptions markerOptions = new MarkerOptions();
@@ -107,12 +107,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 h_googleMap.addMarker(markerOptions);
 
                 h_googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
-                h_googleMap.animateCamera(CameraUpdateFactory.zoomTo(17));
+                h_googleMap.animateCamera(CameraUpdateFactory.zoomTo(18));
                 switch (msg.what){
                     case AccessAndroidSucess: // 메시지로 넘겨받은 파라미터, 이 값으로 어떤 처리를 할지 결정
                         str = (String)msg.obj;
                         break;
-                    case SendGpsToAndroid:
+                    case Send:
                         /*
                         str = (String)msg.obj;
                         String [] sArray = str.split("#");
@@ -195,8 +195,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                                 } else if (sArray[0] == "AccessAndroidFail") {
                                     h_msg.what = AccessAndroidFail;
                                     h_msg.obj = msg;
-                                } else if (sArray[0] == "SendGpsToAndroid") {
-                                    h_msg.what = SendGpsToAndroid;
+                                } else if (sArray[0] == "Send") {
+                                    h_msg.what = Send;
                                     h_msg.obj = msg;
                                 }
                                 handler.sendMessage(h_msg); // 핸들러로 메세지 전송
